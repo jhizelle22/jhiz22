@@ -1,0 +1,16 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block content %}
+<a href="{% url 'patient_create' %}">+ New Patient</a>
+
+<div class="nav right">
+</div>
+
+    {% for patient in patient %}
+       <div class="patient r">
+           <h2><a href="{% url 'patient_detail' patient.pk %}">{{patient.first_name}} {{patient.last_name}}</a></h2>
+           <a>{{patient.patient_detail}}</a>
+
+       </div>
+    {% endfor %}
+{% endblock content %}
